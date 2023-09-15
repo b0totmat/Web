@@ -1,0 +1,13 @@
+body { margin: 0 }
+
+#cont {
+    width: 100%;
+    height: 300px;
+    display: flex
+}
+
+#cont div:first-of-type { background-color: green; flex-basis: 25% }
+#cont div:nth-of-type(2) { background-color: yellow; flex-basis: 50% }
+#cont div:last-child { background-color: purple; flex-basis: 25% }
+
+#cont div { width: 100% }

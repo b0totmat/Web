@@ -1,0 +1,12 @@
+body { margin: 0 }
+#cont {
+    width: 100%;
+    height: 300px;
+    display: flex
+}
+
+#cont div:first-of-type { background-color: green }
+#cont div:nth-of-type(2) { background-color: yellow }
+#cont div:last-child { background-color: purple }
+
+#cont div { width: 100% }

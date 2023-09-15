@@ -1,0 +1,16 @@
+body { margin: 0 }
+
+#cont {
+    width: 800px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow
+}
+
+#cont div:first-of-type { background-color: green; display: none }
+#cont div:nth-of-type(2) { background-color: yellow; display: none }
+#cont div:last-child { background-color: purple }
+
+#cont div { width: 100px; height: 100px }
