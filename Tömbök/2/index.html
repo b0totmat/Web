@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="input">
+            <input type="text" id="in">
+            <button class="btn">Submit</button>
+        </div>
+        <div id="items">
+            <!--
+            <div class="item">citrom</div>
+            <div class="item">citrom</div>
+            <div class="item">citrom</div>
+            -->
+        </div>
+    </div>
+    <script>
+        let input = document.getElementById('in');
+        const output = document.getElementById('items');
+        let adatok = [];
+
+        document.querySelector('.btn').addEventListener('click', () => {
+            let value = input.value.trim();
+
+            if(value === "" || value.length < 1)
+                window.alert('Üresen hagyta a beviteli mezőt!');
+            else {
+               if(contains(adatok, value))
+                    window.alert("Ezt az adatot már tartalmazza a tömb.");
+                else {
+                    adatok.push(value);
+
+                    print();
+                }
+            }
+
+            input.value = "";
+        });
+
+        function print() {
+            output.innerHTML = "";
+            
+            for (let i of adatok)
+                output.innerHTML += "<div class=\"item\">" + i + "</div>";
+        }
+
+        function contains(arr, val) {
+            let outp = false;
+            for (a of arr) {
+                if(val == a)
+                    outp = true;
+            }
+
+            return outp;
+        }
+    </script>
+</body>
+</html>

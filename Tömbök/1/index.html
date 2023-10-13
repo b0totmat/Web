@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hun">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <button class="btn-n" id="btn1">1</button>
+    <button class="btn-n" id="btn2">2</button>
+    <button class="btn-n" id="btn3">3</button><br>
+    <button id="osszeg">Összeg</button><br>
+    <input type="text" id="bemenet" placeholder="Új elem bevitele">
+    <button id="btn-input1">Hozzáadás</button><br>
+    <button id="btn-length">Tömb Hossza</button><br>
+    <input type="text" id="index" placeholder="Tömb elemének törlése">
+    <button id="btn-input2">Törlés</button>
+    <script>
+        const buttons = document.querySelectorAll('.btn-n');
+        let tomb = ["alma", "Jákob Zoli", "négyajtós szekrény"], bemenet = document.getElementById('bemenet'), idx = document.getElementById('index');
+
+        // 1.
+        for(b of buttons) {
+            b.addEventListener('click', (e) => {
+                window.alert(tomb[parseInt(e["srcElement"].id[e["srcElement"].id.length - 1]) - 1]);
+            });
+        }
+
+        // 2.
+        document.getElementById('osszeg').addEventListener('click', () => {
+            let eredmeny = "";
+            for (v of tomb)
+                eredmeny += v + ";";
+            
+            window.alert(eredmeny);
+        });
+
+        // 3.
+        document.getElementById('btn-input1').addEventListener('click', () => {
+            tomb.push(bemenet.value);
+        });
+
+        // 4.
+        document.getElementById('btn-length').addEventListener('click', () => {
+            window.alert("A tömb " + tomb.length + " elemet tartalmaz.");
+        });
+
+        // 5.
+        document.getElementById('btn-input2').addEventListener('click', () => {
+            let index = parseInt(idx.value);
+
+            tomb.splice(index, 1);
+        });
+    </script>
+</body>
+</html>
