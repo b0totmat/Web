@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        let fizetes = {
+            Anna : 2100,
+            Cecil : 1890,
+            Emil : 2050,
+            Gerald : 2920
+        };
+        let osszFizetes = 0, eredmeny = "";
+        for(x in fizetes) {
+            osszFizetes += fizetes[x];
+            eredmeny += x + " " + fizetes[x] + "Ft-ot keres, ";
+        }
+        
+        eredmeny += "A fizetések összege: " + osszFizetes;
+        console.log(eredmeny);
+        document.body.innerHTML = eredmeny;
+    </script>
+</body>
+</html>
