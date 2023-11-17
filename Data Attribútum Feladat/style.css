@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body { background-color: lightblue }
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center
+}
+.box-container { padding: 10px }
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border-radius: 20px
+}
+
+.box-container .box:last-child { margin-top: 10px }
