@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        let heroes = [
+            {firstName: "Ahsoka", lastName: "Tano", job: "padawan"},
+            {firstName: "Boba", lastName: "Fett", job: "fejvadász"},
+            {firstName: "Han", lastName: "Solo", job: "csempész"},
+            {firstName: "Leia", lastName: "Organa", job: "szenátor"}
+        ]
+
+        function objToString(obj) { return `${obj.firstName} ${obj.lastName} egy ${obj.job}`; }
+
+        function kiiras() {
+            for(let i = 0; i < heroes.length; i++)
+                document.body.innerHTML += objToString(heroes[i]) + "<br>";
+        }
+
+        kiiras();
+    </script>
+</body>
+</html>
