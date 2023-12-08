@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box
+}
+
+body {
+    background-color: #3773d4
+}
+
+#container {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-basis: 50px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background: #25c5e6;
+    color: whitesmoke;
+    text-align: center;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 0 rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.hidden {
+    background-color: rgb(128, 0, 128);
+    color: purple
+}
+.ok { background-color: orange }
+
+.end-screen {
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 2px 2px 5px rgba(0,0,0,.2);
+    color: #666;
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.22);
+    font-size: 20px
+}

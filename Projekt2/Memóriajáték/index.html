@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Memóriajáték</title>
+</head>
+<body>
+    <div id="container">
+        <div class="end-screen">Gratulálok!</div>
+    </div>
+    <script>
+        const cardAmount = 12;
+        let texts = [1,2,3,4,5,6], text12 = [], cards = [], cardCounter = 0, revealedCards = [];
+
+        function Shuffle(arr) { // Tömb keverése
+            let newArr = [];
+            for(let i = 0; i < arr.length; i++) newArr[i] = arr[i];
+            
+            for(let i = newArr.length - 1; i > 0; i--) {
+                let rnd = Math.floor(Math.random() * (i + 1));
+                let tmp = newArr[i];
+                newArr[i] = newArr[rnd];
+                newArr[rnd] = tmp;
+            }
+
+            return newArr;
+        }
+
+        // 12 szöveg készítése két tömbből
+        function CreateText(arr) {
+            let arr1 = Shuffle(arr), arr2 = Shuffle(arr);
+            return arr1.concat(arr2);
+        }
+
+        function RenderCard(txt) { // Egy kártya készítése
+            document.querySelector('#container').innerHTML += '<div class="card hidden" onclick="CardClicked(this);">'+txt+'</div>';
+        }
+        function Start(cardAmount) {
+            document.querySelector('#container').innerHTML = '<div class="end-screen">Gratulálok!</div>';
+            text12 = Shuffle(CreateText(texts));
+            cardCounter = 0;
+            for(let i = 0; i < cardAmount; i++)
+                RenderCard(text12[i]);
+            
+            cards = document.querySelectorAll('.card');
+            document.querySelector('.end-screen').style.display = "none";
+        }
+
+        function CardClicked(e) {
+            if(!e.classList.contains('not-clickable')) { // Ha kattintható
+                e.classList.remove('hidden');
+                e.classList.add('not-clickable');
+                revealedCards.push(e);
+
+                if(revealedCards.length === 2)
+                    Evaluation();
+                
+                if(cardCounter == 6) {
+                    document.querySelector('.end-screen').style.display = "flex";
+                    setTimeout(function() { Start(cardAmount); }, 5000);
+                }
+                console.log(revealedCards);
+            }
+            console.log(cardCounter);
+        }
+        function Evaluation() {
+            if(revealedCards[0].innerHTML === revealedCards[1].innerHTML) {
+                for(x of revealedCards) {
+                    x.classList.add('not-clickable');
+                    x.classList.add('ok');
+                }
+                revealedCards = [];
+                cardCounter++;
+            }
+            else {
+                for(x of document.querySelectorAll(".card"))
+                    x.classList.add('not-clickable'); // Egyik kártya se legyen kattintható
+                setTimeout(() => { // Egy kis ideig látható mindkét kártya
+                    for(x of revealedCards)
+                        x.classList.add('hidden');
+
+                    //
+                    revealedCards = [];
+
+                    for(x of document.querySelectorAll(".card")) {
+                        if(!x.classList.contains("ok")) // A kitalált kártyákról nem
+                            x.classList.remove('not-clickable');
+                    }
+
+                    console.log("ok");
+                    console.log(revealedCards);
+                },1000);
+            }
+        }
+        
+        Start(cardAmount);
+    </script>
+</body>
+</html>
