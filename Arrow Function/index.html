@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="form">
+            <div id="input">
+                <input type="text" id="szoveg">
+                <button onclick="megfordit();">Megfordítás</button>
+            </div>
+            <div id="kimenet"></div>
+        </div>
+    </div>
+    <script>
+        const megfordit = () => {
+            let szoveg = document.getElementById('szoveg'), ujSzoveg = "";
+            
+            for(let i = szoveg.value.length - 1; i >= 0; i--)
+                ujSzoveg += szoveg.value[i];
+
+            szoveg.value = ujSzoveg;
+        };
+    </script>
+</body>
+</html>
