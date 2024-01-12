@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="form">
+            <div>
+                <input type="number" id="num">
+                <select id="vOrIndex">
+                    <option value="value">Value</option>
+                    <option value="index">Index</option>
+                </select>
+            </div>
+            <div id="buttons">
+                <button id="add">Hozzáadás</button>
+                <button id="eval">Számolj!</button>
+                <button id="trunc">Törlés</button>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <h3>Tömb elemei:</h3>
+        <p></p>
+    </div>
+    <script>
+        let numbers = [];
+
+        function minInArray(arr, vOrIdx) {
+            let smallest = arr[0], idx = 0;
+
+            for(let i = 1; i < arr.length; i++) {
+                if(arr[i] < smallest) {
+                    smallest = arr[i];
+                    idx = i;
+                }
+            }
+
+            if(vOrIdx === 'value')
+                return smallest;
+            else if(vOrIdx === 'index')
+                return idx;
+            
+            return 0;
+        }
+
+        function Display() {
+            let output = "";
+
+            for(let i = 0; i < numbers.length; i++)
+                output += numbers[i] + "\t";
+            
+            document.querySelector('#sidebar p').innerHTML = output;
+        }
+
+        //console.log(minInArray([5,2,1,4,5], 'value'));
+
+        document.querySelector('#add').onclick = () => {
+            let number = null;
+            try {
+                number = parseInt(document.getElementById('num').value);
+            }
+            catch(error) {
+                console.log(error);
+            }
+            
+            if(number != null && typeof(number))
+                numbers.push(number);
+            
+            //console.log(numbers, typeof(number));
+            Display();
+        };
+
+        document.querySelector('#eval').onclick = () => {
+            let option = document.getElementById('vOrIndex').value;
+            //console.log(option);
+
+            window.alert(minInArray(numbers, option));
+        };
+
+        document.querySelector('#trunc').onclick = () => {
+            numbers = [];
+            document.getElementById('num').value = "";
+
+            //console.log(numbers);
+            Display();
+        };
+    </script>
+</body>
+</html>
