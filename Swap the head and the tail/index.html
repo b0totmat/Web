@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const paritas = (szam) => (szam % 2 == 0);
+
+        function swap(arr) {
+            let eredmeny, kozepso, paros = true;
+
+            if(!paritas(arr.length)) {
+                paros = false;
+                for(let i = 0; i < arr.length; i++) {
+                    if(i > arr.length / 2 - 1 && i < arr.length / 2 + 1) {
+                        kozepso = arr[i];
+                        arr.splice(i, 1);
+                        //console.log(kozepso);
+                    }
+                }
+            }
+        
+            let length = arr.length / 2, elso = [], masodik = [];
+
+            for(let i = 0; i < length; i++)
+                elso.push(arr[i]);
+            
+            for(let i = length; i < arr.length; i++)
+                masodik.push(arr[i]);
+            if(!paros)
+                masodik.push(kozepso);
+        
+            return masodik.concat(elso);
+        }
+
+        console.log(swap([1,2,3,4,5,6,7,8,9]));
+    </script>
+</body>
+</html>
