@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const osszeadas = (sz1, sz2) => sz1 + sz2,
+              kivonas = (sz1, sz2) => sz1 - sz2,
+              szorzas = (sz1, sz2) => sz1 * sz2,
+              osztas = (sz1, sz2) => sz1 / sz2;
+
+        const szamol = (muvelet, szam1, szam2) => muvelet(szam1, szam2);
+
+        console.log(szamol(osszeadas, 6, 2));
+        console.log(szamol(kivonas, 6, 2));
+        console.log(szamol(szorzas, 6, 2));
+        console.log(szamol(osztas, 6, 2));
+    </script>
+</body>
+</html>
