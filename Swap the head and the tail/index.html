@@ -7,12 +7,12 @@
 </head>
 <body>
     <script>
-        const paritas = (szam) => (szam % 2 == 0);
+        const parosE = (szam) => (szam % 2 == 0);
 
         function swap(arr) {
             let eredmeny, kozepso, paros = true;
 
-            if(!paritas(arr.length)) {
+            if(!parosE(arr.length)) {
                 paros = false;
                 for(let i = 0; i < arr.length; i++) {
                     if(i > arr.length / 2 - 1 && i < arr.length / 2 + 1) {
