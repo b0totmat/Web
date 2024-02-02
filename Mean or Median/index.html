@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        function meanOrMedian(arr) {
+            let mean = 0, median;
+            for(let i = 0; i < arr.length; i++) {
+                mean += arr[i];
+                if(i === Math.floor(arr.length / 2))
+                    median = arr[i];
+            }
+            mean /= arr.length;
+
+            console.log('mean: ', mean, 'median: ', median);
+
+            if(mean < median) return 'median';
+            else if(mean > median) return 'mean';
+            return 'same';
+        }
+
+        console.log(meanOrMedian([2,2,2,2,2]));
+        console.log(meanOrMedian([1,2,3,4,5]));
+        console.log(meanOrMedian([12,3,4,6,7.2,9,32]));
+        console.log(meanOrMedian([9,3,5,4,6,2,2]));
+    </script>
+</body>
+</html>
