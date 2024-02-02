@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        function adjacentElementsProduct(array) {
+            let currentMax = array[0] * array[1];
+            for(let i = 1; i < array.length; i++) {
+                let newMax = array[i] * array[i + 1];
+                if(newMax > currentMax)
+                currentMax = newMax;
+            }
+            
+            return currentMax;
+        }
+    </script>
+</body>
+</html>
