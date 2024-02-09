@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        function swapHeadAndTail(numbers) {
+            let head = [], tail = [], cent = undefined;
+            if(numbers.length % 2 != 0) {
+                for(let i = 0; i < numbers.length; i++) {
+                    if(i == Math.round(numbers.length / 2) - 1) {
+                        cent = numbers[i];
+                        break;
+                    }
+                }
+            }
+            for(let i = 0; i <  Math.round(numbers.length / 2); i++) {
+                if(numbers[i] != cent)
+                    tail.push(numbers[i]);
+            }
+            for(let i =  Math.round(numbers.length / 2); i < numbers.length; i++) {
+                if(numbers[i] != cent)
+                    head.push(numbers[i]);
+            }
+
+            if(cent != undefined)
+                head.push(cent);
+            return head.concat(tail);
+        }
+
+        console.log(swapHeadAndTail([1,2,3,4,5]));
+        console.log(swapHeadAndTail([2,6,9,3]));
+        console.log(swapHeadAndTail([10,11,12,13,14,15,16]));
+    </script>
+</body>
+</html>

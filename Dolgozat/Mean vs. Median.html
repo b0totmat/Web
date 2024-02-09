@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+
+        function meanVsMedian(numbers) {
+            numbers.sort();
+            let mean = 0, median = undefined;
+            console.log(numbers)
+            for(let i = 0; i < numbers.length; i++) {
+                mean += numbers[i];
+
+                if(i === Math.floor(numbers.length / 2))
+                    median = numbers[i];
+            }
+            mean /= numbers.length;
+            console.log(mean, median);
+
+            if(mean === median) return "same";
+            return median > mean ? "median" : "mean";
+        }
+
+        console.log(meanVsMedian([1,2,3,4,5]));
+        console.log(meanVsMedian([5,2,4,3,1]));
+        console.log(meanVsMedian([16,40,39,2,77,5,13]));
+    </script>
+</body>
+</html>
