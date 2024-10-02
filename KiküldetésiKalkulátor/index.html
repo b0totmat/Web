@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <title>Kiküldetési Kalkulátor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+    <div class="container pt-2">
+        <form class="px-4">
+            <div class="row mb-3">
+                <fieldset class="col-2 border border-2 p-1">
+                    <div class="text-center">Üzemanyag típusa</div>
+                    <div class="row justify-content-end">
+                        <div class="col-8">
+                            <div class="form-check">
+                                <label for="benzin" class="form-label">Benzin</label>
+                                <input type="radio" name="uzemanyag-tipus" id="benzin" value="benzin" class="form-check-input">
+                            </div>
+                            <div class="form-check">
+                                <label for="gazolaj" class="form-label">Gázolaj</label>
+                                <input type="radio" name="uzemanyag-tipus" id="gazolaj" value="gazolaj" class="form-check-input">
+                            </div>
+                            <div class="form-check">
+                                <label for="elektromos" class="form-label">Elektromos</label>
+                                <input type="radio" name="uzemanyag-tipus" id="elektromos" value="elektromos" class="form-check-input">
+                            </div>
+                            <div class="form-check">
+                                <label for="lpg" class="form-label">LPG</label>
+                                <input type="radio" name="uzemanyag-tipus" id="lpg" value="lpg" class="form-check-input">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="col-2 border border-2 p-1 ms-3">
+                    <div class="text-center mb-4">Amortizációs díj (Ft/km)</div>
+                    <div class="row justify-content-end">
+                        <div class="col-8">
+                            <div class="form-check">
+                                <label for="18" class="form-label">18</label>
+                                <input type="radio" name="amortizacios-dij" id="18" value="benzin" class="form-check-input">
+                            </div>
+                            <div class="form-check">
+                                <label for="30" class="form-label">30</label>
+                                <input type="radio" name="amortizacios-dij" id="30" value="gazolaj" class="form-check-input">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="row mb-3">
+                <fieldset class="col">
+                    <input type="text" class="form-control w-25 d-inline-block me-1" name="fizetendo" id="fizetendo">
+                    <span class="fs-5">Ft/l</span>
+                </fieldset>
+            </div>
+            <div class="row mb-3">
+                <fieldset class="col-2">
+                    <select name="hengerur-tartalom" id="hengerur-tartalom" class="form-select">
+                        <option value="1000">1000 cm^3-ig</option>
+                        <option value="1500">1001-1500 cm^3-ig</option>
+                        <option value="2000">1501-2000 cm^3-ig</option>
+                        <option value="3000">2001-3000 cm^3-ig</option>
+                        <option value="3001">3001 cm^3 felett</option>
+                    </select>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="col-4 border border-1 p-2">
+                    <div class="mb-2">
+                        <label for="rendszam" class="form-label">Rendszám:</label>
+                        <input type="text" name="rendszam" id="rendszam" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label for="gyarto-tipus" class="form-label">Gyártó, típus:</label>
+                        <input type="text" name="gyarto-tipus" id="gyarto-tipus" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label for="honnan-hova" class="form-label">Honnan-hova:</label>
+                        <input type="text" name="honnan-hova" id="honnan-hova" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label for="megtett-tavolsag" class="form-label">Megtett távolság:</label>
+                        <div>
+                            <input type="text" name="megtett-tavolsag" id="megtett-tavolsag" class="form-control d-inline-block w-75 me-1">
+                            <span class="fs-5">km</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="btn btn-outline-success mt-3">Számol</button>
+        </form>
+    </div>
+</body>
+</html>
