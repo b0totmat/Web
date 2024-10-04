@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./script.js"></script>
 </head>
 <body>
     <div class="container pt-2">
@@ -58,11 +60,14 @@
             <div class="row mb-3">
                 <fieldset class="col-2">
                     <select name="hengerur-tartalom" id="hengerur-tartalom" class="form-select">
+                        <option value="-1">--</option>
+                        <!--
                         <option value="1000">1000 cm^3-ig</option>
                         <option value="1500">1001-1500 cm^3-ig</option>
                         <option value="2000">1501-2000 cm^3-ig</option>
                         <option value="3000">2001-3000 cm^3-ig</option>
                         <option value="3001">3001 cm^3 felett</option>
+                        -->
                     </select>
                 </fieldset>
             </div>
@@ -89,7 +94,7 @@
                     </div>
                 </fieldset>
             </div>
-            <button class="btn btn-outline-success mt-3">Számol</button>
+            <button type="submit" class="btn btn-outline-success mt-3" disabled>Számol</button>
         </form>
     </div>
 </body>
