@@ -1,0 +1,8 @@
+.nav-item, .list-group-item {
+    width: 50px;
+    height: 20px
+}
+
+figure img {
+    max-width: 40%
+}
