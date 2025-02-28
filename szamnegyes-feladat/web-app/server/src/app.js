@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    fs.rea
+    res.send('Hello World!')
 })
 
 app.post('/', (req, res) => {
@@ -19,16 +19,28 @@ app.post('/', (req, res) => {
             res.status(400)
         } else {
             const fours = JSON.parse(data)
-            const newFour = req.body
+            const newFour = {
+                id: Number(fours[fours.length - 1].id + 1),
+                four: req.body.four
+            }
+            
+            const matchingFour = fours.find(f => f.four == newFour.four)
+            if(!matchingFour) {
+                if(newFour.four.length != 4)
+                    res.status(400).send({ message: 'Invalid data.' })
+                else {
+                    fours.push(newFour)
 
-            fours.push(newFour)
-
-            fs.writeFile('./src/fours.json', JSON.stringify(fours), (error) => {
-                if(error) {
-                    res.status(400)
+                    fs.writeFile('./src/fours.json', JSON.stringify(fours), (error) => {
+                        if(error) {
+                            return res.status(400)
+                        }
+                        res.status(200)
+                    })
                 }
-                res.status(200)
-            })
+            } else {
+                res.status(409)
+            }
         }
     })
 })
