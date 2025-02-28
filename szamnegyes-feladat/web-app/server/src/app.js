@@ -17,6 +17,25 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/:id', (req, res) => {
+    const id = req.params.id
+
+    fs.readFile('./src/fours.json', (err, data) => {
+        if(err) {
+            return res.status(400).send({ message: err.message })
+        }
+
+        const fours = JSON.parse(data)
+        const four = fours.find(f => f.id == id)
+
+        if(!four) {
+            return res.status(404)
+        }
+
+        res.status(200).send(four)
+    })
+})
+
 app.post('/', (req, res) => {
     console.log(req.body)
     fs.readFile('./src/fours.json', (err, data) => {
