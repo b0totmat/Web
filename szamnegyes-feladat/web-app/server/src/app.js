@@ -9,7 +9,12 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    fs.readFile('./src/fours.json', (err, data) => {
+        if(err) {
+            return res.status(400).send({ message: err.message })
+        }
+        res.status(200).send(JSON.parse(data))
+    })
 })
 
 app.post('/', (req, res) => {
