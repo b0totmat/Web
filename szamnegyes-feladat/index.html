@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számnégyesek</title>
+</head>
+<body>
+    <script>
+        function jatek(tabla) {
+            let helyes = true
+            const a = tabla[0][0],
+                  b = tabla[0][2],
+                  c = tabla[2][0],
+                  d = tabla[2][2]
+            
+            if(!(tabla[1][1] == a + b + c + d))
+                helyes = false
+            if(!(tabla[0][1] == a + b))
+                helyes = false
+            if(!(tabla[1][0] == a + c))
+                helyes = false
+            if(!(tabla[1][2] == b + d))
+                helyes = false
+            if(!tabla[2][1] == c + d)
+                helyes = false
+
+            if(helyes)
+                return [a,b,c,d]
+            return [-1]
+        }
+
+        let table = [[1,2,1], [2,4,2], [1,2,1]]
+        console.log(jatek(table)) // [1,1,1,1]
+
+        table = [[3,7,4], [5,16,11], [2,9,7]] // [3,4,2,7]
+        console.log(jatek(table))
+        
+        table = [[3,7,4], [5,12,11], [2,9,7]] // [-1]
+        console.log(jatek(table))
+    </script>
+</body>
+</html>
