@@ -8,7 +8,7 @@ export const useFourStore = defineStore('four', () => {
 
   async function getFours() {
     try {
-      fours = (await FourService.index()).data
+      fours.value = (await FourService.index()).data
     } catch(e) {
       console.error(e)
     }

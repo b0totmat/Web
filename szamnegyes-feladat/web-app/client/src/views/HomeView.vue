@@ -1,9 +1,21 @@
 <script setup>
+import { onMounted } from 'vue'
+import { useFourStore } from '@/stores/four'
 
+const fourStore = useFourStore()
+
+onMounted(async () => {
+  await fourStore.getFours()
+})
 </script>
 
 <template>
   <main>
-    <h1>Home</h1>
+    <h1>Számnégyesek</h1>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="four in fourStore.fours" :key="four.id">
+        <span class="me-2" v-for="number in four.four">{{ number }};</span>
+      </li>
+    </ul>
   </main>
 </template>
