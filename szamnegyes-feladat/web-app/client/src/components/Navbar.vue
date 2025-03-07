@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">Home</RouterLink>
+          <RouterLink class="nav-link" to="/">Számnégyesek</RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/new">Új számnégyes</RouterLink>
