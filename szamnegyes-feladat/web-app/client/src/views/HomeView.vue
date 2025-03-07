@@ -10,12 +10,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main>
     <h1>Számnégyesek</h1>
-    <ul class="list-group">
+    <ul class="list-group mt-3">
       <li class="list-group-item" v-for="four in fourStore.fours" :key="four.id">
         <span class="me-2" v-for="number in four.four">{{ number }};</span>
       </li>
     </ul>
-  </main>
 </template>
